@@ -9,6 +9,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
+  "plugins": ["simple-import-sort"],
   "settings": {
     "react": {
       "version": "detect"
@@ -43,6 +44,8 @@
     "object-curly-spacing": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-trailing-spaces": "error",
-    "eol-last": ["error", "always"]
+    "eol-last": ["error", "always"],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }
