@@ -1,10 +1,10 @@
 import { ReactElement, useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { IMenu } from '../../../models/menu';
-import { ToggleButton } from '../../atoms/ToggleButton';
+import { IMenu } from '../../../models';
+import { ToggleButton } from '../../atoms';
 import { Ul } from '../../atoms/Ul';
-import { MenuItemList } from '../../molecules/MenuItemList';
+import { MenuItemList } from '../../molecules';
 
 const Nav = styled.nav<{
   $color: string;

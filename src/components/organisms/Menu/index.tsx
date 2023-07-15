@@ -1,7 +1,7 @@
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMenuFold, AiOutlineMenuUnfold } from 'react-icons/ai';
 
 import { useWindowSize } from '../../../hooks';
-import { IMenu } from '../../../models/menu';
+import { IMenu } from '../../../models';
 import { DeskTopMenu } from '../DeskTopMenu';
 import { MobileMenu } from '../MobileMenu';
 

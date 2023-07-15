@@ -1,8 +1,7 @@
 import { ReactElement } from 'react';
 import { styled } from 'styled-components';
 
-import { IconContainer } from '../../atoms/IconContainer';
-import { MenuTitle } from '../../atoms/MenuTitle';
+import { IconContainer, MenuTitle } from '../../atoms';
 
 export const Li = styled.li<{ $minWidth: string }>`
   display: flex;
