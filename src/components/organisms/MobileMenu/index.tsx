@@ -28,8 +28,10 @@ const Nav = styled.nav<{
 
 interface MobileMenuProps {
   menus: IMenu[];
-  backgroundColor: string;
-  color: string;
+  backgroundColorExpanded: string;
+  colorExpanded: string;
+  backgroundColorCollapsed: string;
+  colorCollapsed: string;
   padding: string;
   minWidth: string;
   maxWidth: string;
@@ -41,8 +43,10 @@ interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   menus,
-  color,
-  backgroundColor,
+  colorExpanded,
+  backgroundColorExpanded,
+  colorCollapsed,
+  backgroundColorCollapsed,
   padding,
   minWidth,
   maxWidth,
@@ -53,32 +57,24 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
   const [iconWidth, setIconWidth] = useState<string>('');
-  const [navState, setNavState] = useState<string>('');
-  const [navBackgroundColor, setNavBackgroundColor] = useState<string>('');
-  const [toggleButtonColor, setToggleButtonColor] = useState<string>('');
 
   useEffect(() => setIconWidth(`calc(${minWidth} - (2 * ${padding}))`), [minWidth, padding]);
-  useEffect(() => {
-    setNavBackgroundColor(isCollapsed ? color : backgroundColor);
-    setToggleButtonColor(isCollapsed ? backgroundColor : color);
-    setNavState(isCollapsed ? 'collapsed' : 'expanded');
-  }, [isCollapsed, color, backgroundColor]);
 
   const handleToggleClick = () => setIsCollapsed(!isCollapsed);
 
   return (
     <Nav
       $fontSize={fontSize}
-      $color={color}
-      $backgroundColor={navBackgroundColor}
+      $color={isCollapsed ? colorCollapsed : colorExpanded}
+      $backgroundColor={isCollapsed ? backgroundColorCollapsed : backgroundColorExpanded}
       $minWidth={minWidth}
       $maxWidth={maxWidth}
       $padding={padding}
-      className={navState}
+      className={isCollapsed ? 'collapsed' : 'expanded'}
     >
       <Ul>
         <ToggleButton
-          color={toggleButtonColor}
+          color={isCollapsed ? colorCollapsed : colorExpanded}
           size={toggleIconSize}
           isCollapsed={isCollapsed}
           iconExpanded={toggleIconExpanded}

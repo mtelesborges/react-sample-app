@@ -22,8 +22,10 @@ export const Menu: React.FC<MenuProps> = ({ menus }) => {
   return isMobile ? (
     <MobileMenu
       menus={menus}
-      backgroundColor={BACKGROUND_COLOR}
-      color={COLOR}
+      backgroundColorCollapsed={COLOR}
+      colorCollapsed={BACKGROUND_COLOR}
+      backgroundColorExpanded={BACKGROUND_COLOR}
+      colorExpanded={COLOR}
       minWidth={MIN_WIDTH}
       maxWidth={MAX_WIDTH}
       padding={PADDING}

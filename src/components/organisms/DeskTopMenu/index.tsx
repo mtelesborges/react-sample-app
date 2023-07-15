@@ -14,8 +14,8 @@ const Nav = styled.nav<{
   $maxWidth: string;
   $padding: string;
 }>`
-  color: ${(props) => props.$color ?? 'white'};
-  background-color: ${(props) => props.$backgroundColor ?? 'blue'};
+  color: ${(props) => props.$color};
+  background-color: ${(props) => props.$backgroundColor};
   font-size: ${(props) => props.$fontSize};
 
   padding: ${(props) => props.$padding};
@@ -56,10 +56,8 @@ export const DeskTopMenu: React.FC<DeskTopMenuProps> = ({
 }) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
   const [iconWidth, setIconWidth] = useState<string>('');
-  const [navState, setNavState] = useState<string>('');
 
   useEffect(() => setIconWidth(`calc(${minWidth} - (2 * ${padding}))`), [minWidth, padding]);
-  useEffect(() => setNavState(isCollapsed ? 'collapsed' : 'expanded'), [isCollapsed, color, backgroundColor]);
 
   const handleToggleClick = () => setIsCollapsed(!isCollapsed);
 
@@ -71,7 +69,7 @@ export const DeskTopMenu: React.FC<DeskTopMenuProps> = ({
       $minWidth={minWidth}
       $maxWidth={maxWidth}
       $padding={padding}
-      className={navState}
+      className={isCollapsed ? 'collapsed' : 'expanded'}
     >
       <Ul>
         <ToggleButton
